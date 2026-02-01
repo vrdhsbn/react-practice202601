@@ -1,9 +1,76 @@
 ---
+import FadeContent from '@/components/FadeContent'
+import { TopAnimatedContent } from '@/components/top/TopAnimatedContent'
+import { TopBackground } from '@/components/top/TopBackground'
+import { TopBlurText } from '@/components/top/TopBlurText'
+import { TopBounceCards } from '@/components/top/TopBounceCards'
+import { TopCarousel } from '@/components/top/TopCarousel'
+import { TopMessage } from '@/components/top/TopMessage'
+import { TopScrollText } from '@/components/top/TopScrollText'
+import { TopSection } from '@/components/top/TopSection'
+import { TopTitle } from '@/components/top/TopTitle'
 import Layout from '@/layouts/Layout.astro'
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="UI Components Demos">
   <main>
-    <p>hello</p>
+    <TopBackground client:only="react" />
+
+    <div class="mx-auto w-fit">
+      <TopTitle client:only="react" />
+    </div>
+
+    <div class="mt-4">
+      <TopMessage client:only="react">
+        <p>Appleのサイトみたいなグラデーションテキスト</p>
+      </TopMessage>
+    </div>
+
+    <div class="my-16">
+      <TopScrollText client:only="react" />
+    </div>
+
+    <div class="mx-auto mt-8 w-fit">
+      <TopCarousel client:only="react" />
+    </div>
+
+    <TopSection>
+      <TopBlurText text={'最初のセクションです'} client:only="react" />
+    </TopSection>
+
+    <div class="flex items-center justify-center gap-10">
+      <TopAnimatedContent delay={0} threshold={0.5} client:only="react">
+        <div>コンテンツが</div>
+      </TopAnimatedContent>
+      <TopAnimatedContent delay={0.5} threshold={0.5} client:only="react">
+        <div>順番に</div>
+      </TopAnimatedContent>
+      <TopAnimatedContent delay={1} threshold={0.5} client:only="react">
+        <div>出てくるよ</div>
+      </TopAnimatedContent>
+    </div>
+
+    <TopSection>
+      <TopBlurText text={'2つめのセクションです'} client:only="react" />
+    </TopSection>
+
+    <TopSection>
+      <TopBlurText text={'3つめのセクションです'} client:only="react" />
+    </TopSection>
+
+    <TopSection>
+      <TopBounceCards client:only="react" />
+    </TopSection>
+
+    <FadeContent client:only="react" delay={0.5} threshold={0.4} blur className="mt-24">
+      <div class="flex flex-col items-center justify-center">
+        <h2 class="mb-6 text-3xl font-bold">FadeContentセクション</h2>
+        <p class="max-w-2xl text-center text-lg">
+          スクロールすると、このセクションがフェードインします。
+          <br />
+          React BitsのFadeContentコンポーネントを使用しています。
+        </p>
+      </div>
+    </FadeContent>
   </main>
 </Layout>

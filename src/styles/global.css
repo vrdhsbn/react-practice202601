@@ -1,5 +1,13 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
+
+@utility base {
+  @apply bg-gray-800 tracking-tight text-white;
+}
+
+@theme {
+  --default-font-family: 'Noto Sans JP', sans-serif;
+}
 
 @custom-variant dark (&:is(.dark *));
 
